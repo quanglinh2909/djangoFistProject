@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .button {
+            display: inline-block;
+            height: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .list-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .list-item > div {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<form style="margin-bottom: 20px;" action="" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Nhập câu hỏi" required name="question_text">
+    <input type="datetime-local" required name="time_pub">
+    <button class="button" type="submit">Thêm</button>
+</form>
+<ul>
+    {% for item in questions %}
+    <li class="list-item">
+        <div>{{ item.question_text }}</div>
+{#        <div>Lượt vote: 10</div>#}
+{#        <div>#}
+{#            #}
+{#            <button class="button" on>Bình chọn</button>#}
+{#            <button class="button">Xóa lượt vote</button>#}
+{#        </div>#}
+    </li>
+    <!-- Thêm các mục khác vào đây -->
+    {% endfor %}
+</ul>
+</body>
+</html>
